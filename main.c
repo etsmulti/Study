@@ -1,25 +1,19 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <string.h>
 int x = 0, y = 0;
-int xx = 8, yy = 8;
+int xx = 0, yy = 0;
 int di = 1;
 int dd = 0, df = 0;
-// 1 진행방향이 북쪽
-// 2 진행방향이 서쪽
-// 3 진행방향이 동쪽
-// 4 진행방향이 남쪽
-
-// ToDo 파일의 가로 세로 임의일 경우? 처리
+int ii = 0, jj = 0, kk=0;
+// ii 배열의 열수 수
+// jj 배열의 컬럼의 수 캐릭터 숫자 + \n +\0 이렇게 해서 컬럼의 수 + 2 개가 됨
 
 int main(void)
 {
 	FILE* fp;
-	char str[9][20];
-	char m[9][10];
 
-	// miro.txt  입력
-
+	char st[100];
 	fp = fopen("miro.txt", "r");
 
 	if (fp == NULL)
@@ -29,44 +23,82 @@ int main(void)
 	}
 
 	fseek(fp, 0, SEEK_SET);
+	while(1)
+	{
+		fgets(st, sizeof(st), fp);
+		if (feof(fp)) break;		
+		if (ii == 0) {
+			for (int i = 0; i < 100; i++)
+			{
+				if (st[i] == '\n') { jj++; break; }
+				if (st[i] == ' ') {
+					// 분별자는 스페이스 공백 ' '
+				}
+				else {
+					jj++;
+				}
+				kk++;
+			}
+		}
+		ii++;
+		printf("%s", st);
+	}//while 끝 
+
+	printf("문장의 줄수 %d, 문장의 수 %d 문장의 char 수 %d", ii, jj, kk);
+	printf("재대로 인식 되었는지 확인 \n");
+  
+	xx = jj-2; // 문자의 수 컬럼의 수 - 개행문자 (\n) - 널문자(\0) 그래서 jj -2 가됨
+	yy = ii-1; // 열의 수 배열이 0 부터 시작됨으로 
+
+	char** m = (char*)malloc(sizeof(char*) * ii);
+	for (int i = 0; i < ii; i++)
+	{
+		m[i] = malloc(sizeof(char) * (jj+2));
+	}
 	int i = 0, k = 0;
+	
+	fseek(fp, 0, SEEK_SET);
+
+	char tst[50];  //임시로 받을 배열 설정  문자열을 받은다음 구분자를 제거하고 다시 저장하는 임시 배열
 
 	while (1)
 	{
-		fgets(str[i], sizeof(str), fp);
+		fgets(st, sizeof(st), fp);
 		if (feof(fp))
 		{
-			printf("i의 값은 %d  k의 값은 %d \n", i, k);
 			break;
-		}
-
-		for (int j = 0; j < 20; j++)
+		} 
+		for (int j = 0; j <= kk; j++)
 		{
-			if (str[i][j] == '\n') {
-				m[8 - i][k] = '\n';
-				k = 0;
+			if (st[j] == '\n') {
+				tst[k] = '\n';
+			//	tst[k + 1] = st[j + 1];
 				break;
 			}
-
-			if (str[i][j] == ' ') {
+			if (st[j] == ' ') {
 				// 분별자는 스페이스 공백 ' '
 			}
 			else {
-				m[8 - i][k] = str[i][j];
+				tst[k] = st[j];
 				k++;
 			}
 		}
-		if (i == 8) {
-			m[i][9] = NULL;
-		}
+		tst[k + 1] = NULL ;
 		i++;
-	}
 
-	fclose(fp);
+		strcpy(m[ii - i], tst);
+		printf("%s", m[ii - i]);
 
-	for (int i = 8; i >= 0; i--) {
-		printf("%c %c %c %c %c %c %c %c %c \n", m[i][0], m[i][1], m[i][2], m[i][3], m[i][4], m[i][5], m[i][6], m[i][7], m[i][8]);
+		k = 0;
+	} //while 끝
+
+	printf("****************************************\n");
+	for (int i = ii - 1 ; i >= 0; i--) {
+		for (int j = 0; j < jj; j++) {
+			printf(" %c", m[i][j]);
+		}
 	}
+	printf("****************************************\n");
 
 	int dr;
 	printf("미로찾기 프로그램을 시작합니다. \n");
@@ -75,12 +107,21 @@ int main(void)
 	printf("상대위치 방향으로 진행시 1 (예 : 0) \n");
 	scanf("%d", &dd);
 
-	while (1)
+	int flag = 1;
+
+	while (flag)
 	{
 		printf("이동위치를 입력하세요 ( 직진: 0 오른쪽: 1 후진: 2  왼쪽:3  종료: 5 ) ==>  \n");
 		scanf("%d", &dr);
 		system("cls");
-		printf("키입력전 현재의 위치는 x = %d, y = %d 이고 현위치의 값은 %c \n", x, y, m[x][y]);
+		printf("****************************************\n");
+		for (int i = ii - 1; i >= 0; i--) {
+			for (int j = 0; j < jj; j++) {
+				printf(" %c", m[i][j]);
+			}
+		}
+		printf("****************************************\n");
+		printf("키입력전 현재의 위치는 x = %d, y = %d 이고 현위치의 값은 %c \n", x, y, m[y][x]);
 		if (dr == 5) break;
 
 		if (dd) dr = (df + dr) % 4;
@@ -110,7 +151,7 @@ int main(void)
 				break;
 			case 'F':
 				printf("결승점에 꼴인 하였습니다 \n");
-				return 0;
+				flag = 0;
 			default:
 				break;
 			}
@@ -118,9 +159,12 @@ int main(void)
 
 		case 1:
 			printf("고정 오른쪽 \n");
-			if (x == xx) { printf("현재 위치가 가장 오른쪽에 있습니다. \n");  break; }
+			if (x == xx) {
+				printf("현재 위치가 가장 오른쪽에 있습니다. \n");  
+				break; 
+			}
 
-			mm = m[y][x + 1];
+			mm = m[y][x+1];
 			switch (mm)
 			{
 			case 'o':
@@ -135,7 +179,7 @@ int main(void)
 				break;
 			case 'F':
 				printf("결승점에 꼴인 하였습니다 \n");
-				return 0;
+				flag = 0;
 			default:
 				break;
 			}
@@ -161,7 +205,7 @@ int main(void)
 				break;
 			case 'F':
 				printf("결승점에 꼴인 하였습니다 \n");
-				return 0;
+				flag = 0;
 			default:
 				break;
 			}
@@ -170,6 +214,7 @@ int main(void)
 			printf("고정 왼쪽 \n");
 			if (x == 0) { printf("현재 위치가 가장 왼쪽에 있습니다. \n");  break; }
 			mm = m[y][x - 1];
+
 
 			switch (mm)
 			{
@@ -185,7 +230,7 @@ int main(void)
 				break;
 			case 'F':
 				printf("결승점에 꼴인 하였습니다 \n");
-				return 0;
+				flag = 0;
 			default:
 				break;
 			}
@@ -195,8 +240,18 @@ int main(void)
 			break;
 		}
 		df = dr;
-		printf("키입력후 현재의 위치는 x = %d, y = %d 이고 현위치의 값은 %c \n", x, y, m[x][y]);
+		printf("키입력후 현재의 위치는 x = %d, y = %d 이고 현위치의 값은 %c \n", x, y, m[y][x]);
 	}
 
+
+	printf("end");
+	fclose(fp);
+
+	for (int i = 0; i < ii; i++)
+	{
+		free(m[i]);
+	}
+	free(m);
+
 	return 0;
-}
+} // main 의 끝
