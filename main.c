@@ -65,7 +65,7 @@ int main(void)
 			}
 		}
 		ii++;
-		printf("%s", st);
+//		printf("%s", st);
 	}//while 끝 
 
 	printf("문장의 줄수 %d, 문장의 수 %d 문장의 char 수 %d", ii, jj, kk);
@@ -110,7 +110,7 @@ int main(void)
 		tst[k + 1] = NULL ;
 		i++;
 		strcpy(m[ii - i], tst); // 문자열 카피
-		printf("%s", m[ii - i]);
+//		printf("%s", m[ii - i]);
 
 		k = 0;
 	} //while 끝
@@ -132,26 +132,28 @@ int main(void)
 
 	int flag = 1;
 
+	printf("****************************************\n");
+	for (int i = ii - 1; i >= 0; i--) {
+		for (int j = 0; j < jj; j++) {
+			if (x == j && y == i) {
+				if (df == 0) printf(" ▲");
+				if (df == 1) printf(" ▶");
+				if (df == 2) printf(" ▼");
+				if (df == 3) printf(" ◀");
+			}
+			else {
+				printf(" %c", m[i][j]);
+			}
+		}
+	}
+	printf("****************************************\n");
+
 	while (flag)
 	{
 		printf("이동위치를 입력하세요 ( 직진: 0 오른쪽: 1 후진: 2  왼쪽:3  종료: 5 ) ==>  \n");
 		scanf("%d", &dr);
 		system("cls");
-		printf("****************************************\n");
-		for (int i = ii - 1; i >= 0; i--) {
-			for (int j = 0; j < jj; j++) {
-				if (x == j && y == i) {
-					if( df == 0) printf(" ▲");
-					if (df == 1) printf(" ▶");
-					if (df == 2) printf(" ▼");
-					if (df == 3) printf(" ◀");
-				}
-				else {
-					printf(" %c", m[i][j]);
-				}
-			}
-		}
-		printf("****************************************\n");
+
 		printf("키입력전 현재의 위치는 x = %d, y = %d 이고 현위치의 값은 %c \n", x, y, m[y][x]);
 		if (dr == 5) break;
 
@@ -271,6 +273,21 @@ int main(void)
 			break;
 		}
 		df = dr;
+		printf("****************************************\n");
+		for (int i = ii - 1; i >= 0; i--) {
+			for (int j = 0; j < jj; j++) {
+				if (x == j && y == i) {
+					if (df == 0) printf(" ▲");
+					if (df == 1) printf(" ▶");
+					if (df == 2) printf(" ▼");
+					if (df == 3) printf(" ◀");
+				}
+				else {
+					printf(" %c", m[i][j]);
+				}
+			}
+		}
+		printf("****************************************\n");
 		printf("키입력후 현재의 위치는 x = %d, y = %d 이고 현위치의 값은 %c \n", x, y, m[y][x]);
 	}
 
