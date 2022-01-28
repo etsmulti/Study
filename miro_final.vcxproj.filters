@@ -20,7 +20,16 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="miro.txt">
+    <Text Include="miro1.txt">
+      <Filter>리소스 파일</Filter>
+    </Text>
+    <Text Include="miro2.txt">
+      <Filter>리소스 파일</Filter>
+    </Text>
+    <Text Include="miro3.txt">
+      <Filter>리소스 파일</Filter>
+    </Text>
+    <Text Include="miro4.txt">
       <Filter>리소스 파일</Filter>
     </Text>
   </ItemGroup>

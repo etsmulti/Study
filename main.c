@@ -6,6 +6,7 @@ int xx = 0, yy = 0;
 int di = 1;
 int dd = 0, df = 0;
 int ii = 0, jj = 0, kk=0;
+char seperator = ' ';
 // ii 배열의 열수 수
 // jj 배열의 컬럼의 수 캐릭터 숫자 + \n +\0 이렇게 해서 컬럼의 수 + 2 개가 됨
 
@@ -14,7 +15,30 @@ int main(void)
 	FILE* fp;
 
 	char st[100];
-	fp = fopen("miro.txt", "r");
+	printf("게임의 수준을 선택해 주세요 1: 매우쉬움 2: 쉬움 3:어려움 4:매우어려움 5: 종료\n");
+
+	int level = '0';
+
+	scanf("%d", &level);
+
+	switch (level)
+	{
+		case 1:
+			fp = fopen("miro1.txt", "r");
+			break;
+		case 2:
+			fp = fopen("miro2.txt", "r");
+			break;
+		case 3:
+			fp = fopen("miro3.txt", "r");
+			break;
+		case 4:
+			fp = fopen("miro4.txt", "r");
+			break;
+		default :
+			printf("게임 선택을 하지 않아서 종료 됩니다.");
+			return 0;
+	}
 
 	if (fp == NULL)
 	{
@@ -31,7 +55,7 @@ int main(void)
 			for (int i = 0; i < 100; i++)
 			{
 				if (st[i] == '\n') { jj++; break; }
-				if (st[i] == ' ') {
+				if (st[i] == seperator) {
 					// 분별자는 스페이스 공백 ' '
 				}
 				else {
@@ -75,7 +99,7 @@ int main(void)
 			//	tst[k + 1] = st[j + 1];
 				break;
 			}
-			if (st[j] == ' ') {
+			if (st[j] == seperator) {
 				// 분별자는 스페이스 공백 ' '
 			}
 			else {
@@ -85,8 +109,7 @@ int main(void)
 		}
 		tst[k + 1] = NULL ;
 		i++;
-
-		strcpy(m[ii - i], tst);
+		strcpy(m[ii - i], tst); // 문자열 카피
 		printf("%s", m[ii - i]);
 
 		k = 0;
@@ -117,7 +140,15 @@ int main(void)
 		printf("****************************************\n");
 		for (int i = ii - 1; i >= 0; i--) {
 			for (int j = 0; j < jj; j++) {
-				printf(" %c", m[i][j]);
+				if (x == j && y == i) {
+					if( df == 0) printf(" ▲");
+					if (df == 1) printf(" ▶");
+					if (df == 2) printf(" ▼");
+					if (df == 3) printf(" ◀");
+				}
+				else {
+					printf(" %c", m[i][j]);
+				}
 			}
 		}
 		printf("****************************************\n");
@@ -244,7 +275,7 @@ int main(void)
 	}
 
 
-	printf("end");
+	printf("\n***************************  end  *******************************\n");
 	fclose(fp);
 
 	for (int i = 0; i < ii; i++)
