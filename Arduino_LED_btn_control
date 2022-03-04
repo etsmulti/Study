@@ -1,0 +1,179 @@
+arduion LED Control
+
+// C++ code
+//
+
+/*
+5.LED 알고리즘2
+사용 부품 : R-LED 5개, 330옴 저항 5개, 버튼 2개, 10K 옴 저항 2개
+버튼 1 : 
+한번 누를 땐 초기화 (LED 1번 on)
+두번 연속 클릭 = 모드 변경 (일반/홀수) 
+버튼 2 : 
+모드에 따라 매 클릭시 불빛의 이동 순서 적용
+일반 모드: 1 -> 2 -> 3 -> … 순서로 이동
+홀수 모드: 1 -> 3 -> 5 -> 7(2) -> 9(4) -> 11(1) 순서로 이동
+괄호안에 2, 4, 1은 LED가 총 5개이기에 표시되는 순서
+*/
+
+
+const int LEDS[] = {4,5,6,7,8};
+int count = 0;
+int jcount = 0;
+bool b1Click = false;
+bool b1dbClick =false;
+bool b2Click = false;
+
+const int BTN1 = 2;
+const int BTN2 = 3;
+const int JOG = A0;
+long t1 = 0;
+long t2 = 0;
+
+
+
+void btn1Press() {
+  b1Click = !b1Click;
+  b1dbClick = false;
+  Serial.println("btn1 click");
+
+  t1 = millis();
+Serial.println(t1);
+  if((t1 - t2) < 500){
+    b1dbClick = true;
+    Serial.println("b1 button double click");
+    Serial.println(t2);
+  }
+  t2 = t1;
+
+}
+
+
+void btn2Press() {
+  b2Click = !b2Click;
+  Serial.println("btn2 click");
+}
+
+void setup()
+{
+  Serial.begin(115200);
+  
+  pinMode(LED_BUILTIN, OUTPUT);
+  pinMode(BTN1, INPUT);
+  pinMode(BTN2, INPUT);
+  
+  for(int i = 0; i < 5; i++) {
+    pinMode(LEDS[i], OUTPUT);
+  }
+  
+  attachInterrupt(digitalPinToInterrupt(BTN1), btn1Press, RISING);
+  attachInterrupt(digitalPinToInterrupt(BTN2), btn2Press, RISING);
+  
+}
+
+void ledOn(int num) {
+  for(int i = 0; i <= num ; i++) {
+   	digitalWrite(LEDS[i], HIGH); 
+  }
+}
+
+void loop()
+{
+  if(b1Click){
+    digitalWrite(LEDS[0], HIGH);
+  } else {
+    digitalWrite(LEDS[0], LOW);
+  }
+  
+  if(b1dbClick){
+    digitalWrite(LEDS[0], HIGH);
+    digitalWrite(LEDS[2], HIGH);
+    digitalWrite(LEDS[4], HIGH);
+  } else {
+    digitalWrite(LEDS[0], LOW);
+    digitalWrite(LEDS[2], LOW);
+    digitalWrite(LEDS[4], LOW);
+  }
+  
+  if(b2Click and b1dbClick) {
+    for(int i = 0; i < 5; i++){
+      digitalWrite(LEDS[i], LOW);
+    }
+    for(int i = 0; i < 5; i++) {
+      digitalWrite(LEDS[i], HIGH);
+      delay(1000);
+    }
+  }else if(b2Click and !b1dbClick){
+    for(int i = 0; i < 5; i++){
+      digitalWrite(LEDS[i], LOW);
+    }
+    for(int i = 0; i <= 5; i++) {
+      int s = (i*2)%5;
+      digitalWrite(LEDS[s], HIGH);
+      delay(1000);
+    }
+    /*
+    for(int i = 4; i >= 0; i--) {
+      digitalWrite(LEDS[i], HIGH);
+      delay(1000);
+    }*/
+
+  }else {
+    for(int i = 0; i < 5; i++){
+      digitalWrite(LEDS[i], LOW);
+    }  
+  }
+  
+  
+/*
+  digitalWrite(LED_BUILTIN, HIGH);
+  if(bPress){
+    for(int i = 0; i < count; i++){
+      digitalWrite(LEDS[i], HIGH);
+      Serial.println(count);
+    }  
+  }
+  else {
+   
+    joy = analogRead(JOG);
+    if( pre_j > joy){
+      
+      jcount++;
+      for(int i = 0; i < jcount; i++){
+        digitalWrite(LEDS[i], HIGH); 
+      }
+    }else if( pre_j < joy) {
+      for(int i = 4; i >= 5 - jcount; i--){
+        digitalWrite(LEDS[i], HIGH); 
+      }
+      jcount++;
+    }else{
+      for(int i = 0; i <  5; i++){
+        digitalWrite(LEDS[i], LOW); 
+        jcount = 0;
+      }    
+      
+    }
+    if(jcount == 5) jcount = 5;
+    Serial.print(pre_j);
+    Serial.print(": pre_j    joy : ");
+    Serial.println(joy);
+    pre_j = joy;  
+
+  }
+  
+    
+  delay(1000); // Wait for 1000 millisecond(s)
+  digitalWrite(LED_BUILTIN, LOW);
+  delay(1000); // Wait for 1000 millisecond(s)
+  
+  if(count == 5 and bPress){
+    for(int i = 0; i < count; i++){
+      digitalWrite(LEDS[i], LOW);
+    }
+  }
+  Serial.println(count);
+  if(count == 5 ) count = 0;
+  count++;
+*/  
+}
