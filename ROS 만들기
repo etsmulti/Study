@@ -1,0 +1,71 @@
+ALT + Tab 프로그램 전 환 
+
+프로잭트 만들기 방법
+
+1. $ cs
+ 소스 드라이브 들어가지
+
+2. $ catkin_create_pkg 프로젝트 roscpp rospy std_msgs message_generation
+
+
+3. $ 프로젝트폴더에 msg 폴더 생성
+      yh_msg_2.msg  메세지 파일 입 력
+내용
+time stamp
+int32 data
+
+
+Cmakelist.txt
+
+cmake_minimum_required(VERSION 3.0.2)
+project(yh_tutorial_2)
+
+find_package(catkin REQUIRED COMPONENTS
+  message_generation
+  roscpp
+  rospy
+  std_msgs
+)
+
+add_message_files(
+  FILES
+  yh_msg_2.msg
+)
+
+generate_messages(
+  DEPENDENCIES
+  std_msgs
+)
+
+
+catkin_package(
+#  INCLUDE_DIRS include
+ LIBRARIES yh_tutorial_2
+#  CATKIN_DEPENDS message_generating roscpp rospy std_msgs
+#  DEPENDS system_lib
+)
+
+
+
+add_executable(yh_pub_2 src/yh_pub_2.cpp)
+add_executable(yh_sub_2_int src/yh_sub_2_int.cpp)
+add_executable(yh_sub_2_time src/yh_sub_2_time.cpp)
+
+{PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(yh_pub_2 ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(yh_sub_2_int ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(yh_sub_2_time ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+
+
+target_link_libraries(yh_pub_2 ${catkin_LIBRARIES} )
+target_link_libraries(yh_sub_2_int ${catkin_LIBRARIES} )
+target_link_libraries(yh_sub_2_time ${catkin_LIBRARIES} )
+
+
+catkin_install_python(PROGRAMS
+  scripts/yh_pub_2.py 
+  scripts/yh_sub_2_int.py 
+  scripts/yh_sub_2_time.py 
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+
