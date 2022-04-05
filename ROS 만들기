@@ -1,5 +1,8 @@
 Teminator 설치
  $ sudo apt install teminator
+ 
+ROS 실행된 것을 그래프 보고
+$ rqt_graph
 
 ALT + Tab 프로그램 전 환 
 
