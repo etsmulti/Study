@@ -1,3 +1,6 @@
+Teminator 설치
+ $ sudo apt install teminator
+
 ALT + Tab 프로그램 전 환 
 
 프로잭트 만들기 방법
@@ -13,6 +16,9 @@ ALT + Tab 프로그램 전 환
 내용
 time stamp
 int32 data
+
+
+
 
 
 Cmakelist.txt
