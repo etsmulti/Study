@@ -134,6 +134,7 @@ include_directories(
 ## The recommended prefix ensures that target names across packages don't collide
 add_executable(yh_pub_4 src/yh_pub_4.cpp)
 add_executable(yh_pub_sub_4 src/yh_pub_sub_4.cpp)
+add_executable(yh_pub_sub_class src/yh_pub_sub_class.cpp)
 add_executable(yh_sub_4 src/yh_sub_4.cpp)
 
 ## Rename C++ executable without prefix
@@ -146,6 +147,7 @@ add_executable(yh_sub_4 src/yh_sub_4.cpp)
 ## same as for the library above
 add_dependencies(yh_pub_4 ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 add_dependencies(yh_pub_sub_4 ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(yh_pub_sub_class ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 add_dependencies(yh_sub_4 ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
@@ -154,6 +156,7 @@ add_dependencies(yh_sub_4 ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_
 # )
 target_link_libraries(yh_pub_4 ${catkin_LIBRARIES})
 target_link_libraries(yh_pub_sub_4 ${catkin_LIBRARIES})
+target_link_libraries(yh_pub_sub_class ${catkin_LIBRARIES})
 target_link_libraries(yh_sub_4 ${catkin_LIBRARIES})
 
 #############
