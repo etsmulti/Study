@@ -4,9 +4,14 @@ Teminator 설치
 ROS 실행된 것을 그래프 보고
 $ rqt_graph
 
-ALT + Tab 프로그램 전 환 
+ALT + Tab 프로그램 전 환
+
+파람을 바꿔서 + - * / 전환 가능하다 
+rosparam set /calculation_method 4
+
 
 프로잭트 만들기 방법
+
 
 1. $ cs
  소스 드라이브 들어가지
