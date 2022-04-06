@@ -8,6 +8,18 @@ ALT + Tab 프로그램 전 환
 
 파람을 바꿔서 + - * / 전환 가능하다 
 rosparam set /calculation_method 4
+service_tutorial_1 폴더에서 파라미터를 변경해서 개산기 기능을 함 
+
+ROS_INFO("src.response.Message : %s", srv.response.s.c_str());
+
+
+std::vector ==> {} 자료형 상관 없음
+
+c++ 에서 거의 사용 python 의 list 같은 기능
+v = {1, 2, 3, 4, 5}
+std::vector v = std::vector<int>({1,2,3,4,5});
+
+
 
 
 프로잭트 만들기 방법
