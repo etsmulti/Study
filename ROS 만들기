@@ -10,6 +10,16 @@ ALT + Tab 프로그램 전 환
 rosparam set /calculation_method 4
 service_tutorial_1 폴더에서 파라미터를 변경해서 개산기 기능을 함 
 
+#!/home/min/anaconda3/bin/python
+# -*- coding: utf-8 -*-
+###########     #!/usr/bin/python3 파이썬 3를 사용할 경우
+###########     #!/usr/bin/python 파이썬 2 를 사용할 경우
+##################     #!/home/min/anaconda3/bin/python  ## 아나콘다 됩니다.
+
+
+
+
+
 ROS_INFO("src.response.Message : %s", srv.response.s.c_str());
 
 
