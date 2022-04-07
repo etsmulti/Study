@@ -1,5 +1,5 @@
 Teminator 설치
- $ sudo apt install teminator
+$ sudo apt install teminator
  
 ROS 실행된 것을 그래프 보고
 $ rqt_graph
@@ -17,6 +17,81 @@ service_tutorial_1 폴더에서 파라미터를 변경해서 개산기 기능을
 ##################     #!/home/min/anaconda3/bin/python  ## 아나콘다 됩니다.
 
     # print(sys.version)  ### 파이썬 버전을 볼수 있는 방법
+
+
+기본 교육용 터틀쉽 실행 방법
+$ roscore
+$ rosrun turtlesim tutlesim_node
+
+토픽의 리스트를 보여준다.
+$ rostopic list   
+
+$ rostopic info  
+빠르게 Tab 연속 두번
+
+$ rostopic echo /turtle1/color_sensor 
+ 토픽의 내용을 볼수 있다. RGB
+ 
+$ rostopic echo /turtle1/pose
+ x: 5.544444561
+y: 5.544444561
+theta: 0.0
+linear_velocity: 0.0
+angular_velocity: 0.0
+
+x y 각 선속도 각속도 로 거북이의 움직이는 좌표와 속도 정보를 주는것으로 판단.
+
+$ rosservice list
+
+/clear
+/kill
+/reset
+/rosout/get_loggers
+/rosout/set_logger_level
+/spawn
+/turtle1/set_pen
+/turtle1/teleport_absolute
+/turtle1/teleport_relative
+/turtlesim/get_loggers
+/turtlesim/set_logger_level
+
+$ rosservice info turtle1/teleport_absolute
+
+absolute
+Node: /turtlesim
+URI: rosrpc://min-System:44041
+Type: turtlesim/TeleportAbsolute
+Args: x y theta
+
+
+$ rosrun turtlesim turtlesim_node
+
+$ rqt
+
+$ rosrun turtlesim turtle_teleop_key
+키보드로 거북이 움직이기
+
+$ rostopic echo /turtle1/cmd_vel
+
+$ rostopic info /turtle1/cmd_vel
+Type: geometry_msgs/Twist
+Publishers: None
+Subscribers: 
+ * /turtlesim (http://min-System:40333/)
+ * /rostopic_29221_1649320158073 (http://min-System:40193/)
+ 
+
+$ rosmsg info geometry_msgs/Twist
+geometry_msgs/Vector3 linear
+  float64 x
+  float64 y
+  float64 z
+geometry_msgs/Vector3 angular
+  float64 x
+  float64 y
+  float64 z
+
+
 
 
 
