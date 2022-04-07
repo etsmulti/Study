@@ -1,5 +1,9 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
+
+########### !/usr/bin/python3 파이썬 3를 사용할 경우
+########### !/usr/bin/python 파이썬 2 를 사용할 경우
+
 
 import rospy
 from yh_divisor.msg import yh_divisor_msg
@@ -12,7 +16,9 @@ def msgCallback(msg):
     
     for i in range(1, msg.data):
         if(msg.data % i == 0):
-            print "{0}".format(i),
+            print(f'{i}, ', end='') ### 파이썬 3 문법
+            # print "{0}".format(i), ### 파이썬 2 문법
+
     print("")
 
 
