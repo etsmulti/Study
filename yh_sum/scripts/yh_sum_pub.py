@@ -8,7 +8,7 @@ def talker():
    
     pub = rospy.Publisher("yh_sum_topic",yh_sum_msg,queue_size=100)
     rospy.init_node("yh_sum_pub",anonymous=True)
-    loop_rate = rospy.Rate(10)
+    loop_rate = rospy.Rate(5)
     cnt = 0
     msg = yh_sum_msg()
 

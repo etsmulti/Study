@@ -7,20 +7,20 @@
 import rospy
 from yh_sum.msg import yh_sum_msg
 
-class MyClass:
-    def __init__(self):
-        self.sub = rospy.Subscriber("yh_sum_topic", yh_sum_msg, self.msgCallback)
-        self.old_data = 0
-
-    def msgCallback(self, msg):
-        print(self.old_data + msg.data)
-        self.old_data = msg.data
-        
-  
+sum = 0
+def msgCallback(msg):
+    rospy.loginfo("receieve message: %d", msg.stamp.secs)
+    rospy.loginfo("receieve message: %d", msg.stamp.nsecs)
+    rospy.loginfo("receieve message: %d", msg.data)
+    global sum
+    sum = sum + msg.data
+    print(sum)
+   
 
 def listner():
     rospy.init_node("yh_sum_sub", anonymous=True)
-    my_class = MyClass()
+    rospy.Subscriber("yh_sum_topic", yh_sum_msg, msgCallback)
+
     rospy.spin()
 
 if __name__ == "__main__":
