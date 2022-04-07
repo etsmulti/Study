@@ -16,7 +16,7 @@ service_tutorial_1 폴더에서 파라미터를 변경해서 개산기 기능을
 ###########     #!/usr/bin/python 파이썬 2 를 사용할 경우
 ##################     #!/home/min/anaconda3/bin/python  ## 아나콘다 됩니다.
 
-
+    # print(sys.version)  ### 파이썬 버전을 볼수 있는 방법
 
 
 
