@@ -48,6 +48,8 @@ Args: x y theta
 python
 from turtlesim.srv import TeleportAbsolute
 self.client_teleport = rospy.ServiceProxy("/turtle1/teleport_absolute", TeleportAbsolute)
+self.client_teleport(5.54445, 5.54445 - self.radius, 0)
+        
 
 
 $ rosservice info /clear
@@ -59,7 +61,7 @@ Args:
 python
 from std_srvs.srv import Empty
 self.client_clear = rospy.ServiceProxy("/clear", Empty)
-
+self.client_clear()
 
 
 
