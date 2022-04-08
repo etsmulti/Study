@@ -65,6 +65,61 @@ self.client_clear()
 
 
 
+연습문제 4번 왜 정확하게 거북이가 안 움직이는지 이유?
+
+통신을 하면 purlish 값의 오차가 생긴다. 시간의 오차가 나기때문에
+완벽한 리얼은 존재 하지 않는다.
+리얼타임으로 보내도 그 자체가 없고 몇도 돈다는게 리얼하게 정확한 각도로 안 돌수 있다.
+
+
+여기서 중요한 개념이 나온다
+
+오픈 루프
+일방향으로 명령이 내려지는것
+
+클로즈 루프
+피드백을 통해서 정보를 주고 받아서 보정을 한다.
+
+
+$ rostopic list
+/rosout
+/rosout_agg
+/turtle1/cmd_vel
+/turtle1/color_sensor
+/turtle1/pose
+
+
+$ rostopic info /turtle1/pose
+Type: turtlesim/Pose
+
+Publishers: 
+ * /turtlesim (http://min-System:36951/)
+
+Subscribers: None
+
+
+$ rosmsg show turtlesim/Pose
+float32 x
+float32 y
+float32 theta
+float32 linear_velocity
+float32 angular_velocity
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
