@@ -23,4 +23,44 @@ $ rosrun teleop_twist_keyboard teleop_twist_keyboard.py
 Waiting for subscriber to connect to /cmd_vel
 
 
+$ rossevice list
+/clear
+/kill
+/reset
+/rosout/get_loggers
+/rosout/set_logger_level
+/spawn
+/turtle1/set_pen
+/turtle1/teleport_absolute
+/turtle1/teleport_relative
+/turtle_circle/get_loggers
+/turtle_circle/set_logger_level
+/turtlesim/get_loggers
+/turtlesim/set_logger_level
+
+
+$ rosservice info /turtle1/teleport_absolute
+Node: /turtlesim
+URI: rosrpc://min-System:41777
+Type: turtlesim/TeleportAbsolute
+Args: x y theta
+
+python
+from turtlesim.srv import TeleportAbsolute
+
+$ rosservice info /clear
+Node: /turtlesim
+URI: rosrpc://min-System:41777
+Type: std_srvs/Empty
+Args: 
+
+python
+from std_srvs.srv import Empty
+
+
+
+
+
+
+
 
