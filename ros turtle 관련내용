@@ -1,0 +1,20 @@
+$ sudo apt install ros-melodic-teleop-twist-keyboard
+
+설치
+
+
+ROS turtle 이용하기 위해서 하는 방법
+
+터미네이터를 여러개 분할하여 실행
+
+터미널 1
+$ roscore
+
+터미널 2
+$ rosrun turtlesim turtlesim_node
+
+터미널3
+$ cs
+$ cm
+$ rosrun yh_turtle yh_turtle_move
+
