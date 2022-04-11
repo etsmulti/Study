@@ -134,6 +134,8 @@ include_directories(
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
 add_executable(yh_turtle_move src/yh_turtle_move.cpp)
+add_executable(turtle_circle src/turtle_circle.cpp)
+add_executable(draw_square src/draw_square.cpp)
 add_executable(yh_turtle_keyboard src/yh_turtle_keyboard.cpp)
 
 ## Rename C++ executable without prefix
@@ -145,10 +147,14 @@ add_executable(yh_turtle_keyboard src/yh_turtle_keyboard.cpp)
 ## Add cmake target dependencies of the executable
 ## same as for the library above
 add_dependencies(yh_turtle_move ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(draw_square ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(turtle_circle ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 add_dependencies(yh_turtle_keyboard ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
 target_link_libraries(yh_turtle_move  ${catkin_LIBRARIES})
+target_link_libraries(draw_square  ${catkin_LIBRARIES})
+target_link_libraries(turtle_circle  ${catkin_LIBRARIES})
 target_link_libraries(yh_turtle_keyboard  ${catkin_LIBRARIES})
 
 #############
@@ -162,6 +168,12 @@ target_link_libraries(yh_turtle_keyboard  ${catkin_LIBRARIES})
 ## in contrast to setup.py, you can choose the destination
 catkin_install_python(PROGRAMS
   scripts/yh_turtle_move.py
+  scripts/yh_turtle_circle.py
+  scripts/turtle_circle.py
+  scripts/turtle_triangle.py
+  scripts/turtle_square.py
+  scripts/turtle_pen.py
+  scripts/yh_turtle_triangle.py
   scripts/yh_turtle_keyboard.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
