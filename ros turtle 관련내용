@@ -106,6 +106,24 @@ float32 linear_velocity
 float32 angular_velocity
 
 
+$ rosservice info /turtle1/set_pen
+Node: /turtlesim
+URI: rosrpc://min-System:49289
+Type: turtlesim/SetPen
+Args: r g b width off
+
+$ rossrv show turtlesim/SetPen
+uint8 r
+uint8 g
+uint8 b
+uint8 width
+uint8 off
+---
+
+
+
+
+
 
 
 
