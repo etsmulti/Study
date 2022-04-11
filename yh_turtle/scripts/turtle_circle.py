@@ -9,7 +9,7 @@ import sys
 
 class TurtleCircle():
     def __init__(self, radius):
-        self.pub = rospy.Publisher("/turtle1/cmd_vel", Twist, queue_size=100)
+        self.pub = rospy.Publisher("/turtle1/cmd_vel", Twist, queue_size=10)
         self.client_teleport = rospy.ServiceProxy("/turtle1/teleport_absolute", TeleportAbsolute)
         self.client_clear = rospy.ServiceProxy("/clear", Empty)
         self.radius = radius
