@@ -121,9 +121,76 @@ uint8 off
 ---
 
 
+$ rosrun teleop_twist_keyboard teleop_twist_keyboard.py
+
+Reading from the keyboard  and Publishing to Twist!
+---------------------------
+Moving around:
+   u    i    o
+   j    k    l
+   m    ,    .
+
+For Holonomic mode (strafing), hold down the shift key:
+---------------------------
+   U    I    O
+   J    K    L
+   M    <    >
+
+t : up (+z)
+b : down (-z)
+
+anything else : stop
+
+q/z : increase/decrease max speeds by 10%
+w/x : increase/decrease only linear speed by 10%
+e/c : increase/decrease only angular speed by 10%
+
+CTRL-C to quit
+
+currently:	speed 0.5	turn 1.0 
 
 
+$ rosrun yh_turtle yh_turtle_keyboard.py  
 
+
+$ rostopic echo /cmd_vel
+
+linear: 
+  x: 0.0
+  y: 0.0
+  z: -0.73205
+angular: 
+  x: 0.0
+  y: 0.0
+  z: 0.0
+
+
+$ rostopic info /cmd_vel
+Type: geometry_msgs/Twist
+
+Publishers: 
+ * /teleop_twist_keyboard (http://min-System:45129/)
+
+Subscribers: 
+ * /yh_turtle_keyboard_12750_1649648445354 (http://min-System:41761/)
+
+$ rosmsg show geometry_msgs/Twist
+geometry_msgs/Vector3 linear
+  float64 x
+  float64 y
+  float64 z
+geometry_msgs/Vector3 angular
+  float64 x
+  float64 y
+  float64 z
+  
+  
+$ rosmsg show turtlesim/Pose
+float32 x
+float32 y
+float32 theta
+float32 linear_velocity
+float32 angular_velocity
 
 
 
