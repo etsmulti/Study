@@ -343,7 +343,26 @@ name="turtlesim1" 으로 만들어서
  파라미터 값을 지정해서 쓴다.
 
 
+<launch>
+<!--   <arg name="r" default="128" />
+    <arg name="g" default="128" />
+    <arg name="b" default="128" />
+--> 
+    <node pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" name="teleop_twist_keyboard">
+        <remap from="cmd_vel" to="/turtle1/cmd_vel"/>
+    </node>
+    <node pkg="turtlesim" type="turtlesim_node" name="turtlesim"/>
 
+<!--    
+    <node pkg="yh_turtle" type="yh_turtle_keyboard.py" name="turtle_keyboard" output="screen"/>
+    <param name="turtlesim/background_r" value="$(arg r)"/>
+    <param name="turtlesim/background_g" value="$(arg g"/>
+    <param name="turtlesim/background_b" value="$(arg b"/>
+-->     
+</launch>
+
+
+remap 으로 cmd_vel을 받아서  turtle1.cmd_vel로 전달한다..
 
 
 
