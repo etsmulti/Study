@@ -310,11 +310,37 @@ name="turtlesim1" 으로 만들어서
 <param name="turtlesim1/background_r" value="128"/> 배경색을 바꾼다.
 
 
+직접 하나 하나 작성하기 힘들어서 직접 받아서 쓸려고 수정
+<launch>
+    <arg name="r" default="128" />
+    <node pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" name="teleop_twist_keyboard"/>
+    <node pkg="turtlesim" type="turtlesim_node" name="turtlesim1"/>
+    <node pkg="yh_turtle" type="yh_turtle_keyboard.py" name="turtle_keyboard" output="screen"/>
+    <param name="turtlesim1/background_r" value="$(arg r)"/>
+    <param name="turtlesim1/background_g" value="128"/>
+    <param name="turtlesim1/background_b" value="0"/>
+</launch>
+
+(base) min@min-System:~$ roslaunch yh_turtle turtle_keyboard.launch r:=0
+
+이것으로 r 값을 바꾼다.
+
+<launch>
+    <arg name="r" default="128" />
+    <arg name="g" default="128" />
+    <arg name="b" default="128" />
+
+    <node pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" name="teleop_twist_keyboard"/>
+    <node pkg="turtlesim" type="turtlesim_node" name="turtlesim1"/>
+    <node pkg="yh_turtle" type="yh_turtle_keyboard.py" name="turtle_keyboard" output="screen"/>
+    <param name="turtlesim1/background_r" value="$(arg r)"/>
+    <param name="turtlesim1/background_g" value="$(arg g"/>
+    <param name="turtlesim1/background_b" value="$(arg b"/>
+</launch>
 
 
-
-
-
+(base) min@min-System:~$ roslaunch yh_turtle turtle_keyboard.launch r:=255 g:=0 b:=128
+ 파라미터 값을 지정해서 쓴다.
 
 
 
