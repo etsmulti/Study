@@ -464,5 +464,20 @@ geometry_msgs/Twist[] twist
     float64 z
 
 
+$ roscore
+
+$ roslaunch turtlebot3_gazebo turtlebot3_world.launch
+
+$ rosrun rviz rviz
+
+fixed_name base_scan
+
+Add -> by Topic -> laser scan 추가
+
+
+
+
+
+
 
 
