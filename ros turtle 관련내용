@@ -192,7 +192,122 @@ float32 theta
 float32 linear_velocity
 float32 angular_velocity
 
+$ roslaunch yh_turtle turtle_keyboard.launch
+turtle_keyboard.launch
+<launch>
+    <node pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" name="teleop_twist_keyboard"/>
+    <node pkg="turtlesim" type="turtlesim_node" name="turtlesim1"/>
+    <node pkg="turtlesim" type="turtlesim_node" name="turtlesim2"/>
+    <node pkg="yh_turtle" type="turtle_keyboard_pen.py" name="turtle_keyboard_pen"/>
+ 
+</launch>
 
+turtle_pen.launch
+<launch>
+    <node pkg="turtlesim" type="turtlesim_node" name="turtlesim1"/>
+    <node pkg="turtlesim" type="turtlesim_node" name="turtlesim2"/>
+    <node pkg="yh_turtle" type="turtle_pen.py" name="turtle_pen" output="screen"/>
+</launch>
+
+서비스는 동기고 같은 이름의 서비스는 한개만 존재한다.
+그래서 팬사이즈가 각기 다르게 적용 되서 한개만 적용된다.
+
+<launch>
+    <!-- <node pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" name="teleop_twist_keyboard"/> -->
+    <node pkg="turtlesim" type="turtlesim_node" name="turtlesim1"/>
+    <group ns="1">
+        <node pkg="turtlesim" type="turtlesim_node" name="turtlesim2"/>
+        <node pkg="yh_turtle" type="turtle_keyboard_pen_.py" name="turtle_keyboard_pen" output="screen"/>
+    </group>
+</launch>
+group 으로 분리해서 
+/1/turtle1/set_pen 을 분리해서 각각 쓸수 있다.
+/turtle1/set_pen
+
+
+ROS 는 통신을
+
+Topic 통신
+SERVICE 통신 
+ACTION 통신 3개인대
+topic 통신은 n 대 n 1 대 n n대 1 가능하다.
+
+service
+
+
+$ rosservice list
+/clear
+/kill
+/reset
+/rosout/get_loggers
+/rosout/set_logger_level
+/spawn
+/teleop_twist_keyboard/get_loggers
+/teleop_twist_keyboard/set_logger_level
+/turtle1/set_pen
+/turtle1/teleport_absolute
+/turtle1/teleport_relative
+/turtle_keyboard/get_loggers
+/turtle_keyboard/set_logger_level
+/turtlesim1/get_loggers
+
+(base) min@min-System:~/catkin_ws/src$ rostopic list/cmd_vel
+/rosout
+/rosout_agg
+/turtle1/cmd_vel
+/turtle1/color_sensor
+/turtle1/pose
+
+(base) min@min-System:~/catkin_ws/src$ rosservice list
+/clear
+/kill
+/reset
+/rosout/get_loggers
+/rosout/set_logger_level
+/spawn
+/teleop_twist_keyboard/get_loggers
+/teleop_twist_keyboard/set_logger_level
+/turtle1/set_pen
+/turtle1/teleport_absolute
+/turtle1/teleport_relative
+/turtle_keyboard/get_loggers
+/turtle_keyboard/set_logger_level
+/turtlesim1/get_loggers
+/turtlesim1/set_logger_level
+
+(base) min@min-System:~/catkin_ws/src$ rosparam list
+/rosdistro
+/roslaunch/uris/host_min_system__37563
+/roslaunch/uris/host_min_system__39739
+/rosversion
+/run_id
+/turtlesim1/background_b
+/turtlesim1/background_g
+/turtlesim1/background_r
+
+
+(base) min@min-System:~/catkin_ws/src$ rosparam set /turtlesim1/background_b 0
+
+(base) min@min-System:~/catkin_ws/src$ rosservice call /reset
+
+
+
+    my_operator = rospy.get_param("calculation_method")
+
+파라미터로 설정
+
+<launch>
+    <node pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" name="teleop_twist_keyboard"/>
+    <node pkg="turtlesim" type="turtlesim_node" name="turtlesim1"/>
+    <node pkg="yh_turtle" type="yh_turtle_keyboard.py" name="turtle_keyboard" output="screen"/>
+    <param name="turtlesim1/background_r" value="128"/>
+    <param name="turtlesim1/background_g" value="0"/>
+    <param name="turtlesim1/background_b" value="0"/>
+</launch>
+
+백그라운드의 파라미터 서버에서 적용되서 배경색이 바뀐다. 
+name="turtlesim1" 으로 만들어서 
+<param name="turtlesim1/background_r" value="128"/> 배경색을 바꾼다.
 
 
 
