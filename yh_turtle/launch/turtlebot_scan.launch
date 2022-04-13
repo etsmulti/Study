@@ -1,0 +1,5 @@
+<launch>
+    <node pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" name="teleop_twist_keyboard"/>
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find yh_turtle)/rviz/scan.rviz"/>
+    <include file="$(find turtlebot3_gazebo)/launch/turtlebot3_world.launch"/>
+</launch>

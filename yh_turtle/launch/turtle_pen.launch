@@ -1,0 +1,5 @@
+<launch>
+    <node pkg="turtlesim" type="turtlesim_node" name="turtlesim1"/>
+    <node pkg="turtlesim" type="turtlesim_node" name="turtlesim2"/>
+    <node pkg="yh_turtle" type="turtle_pen.py" name="turtle_pen" output="screen"/>
+</launch>
