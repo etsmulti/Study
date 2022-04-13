@@ -1,0 +1,42 @@
+(base) min@min-System:~$ rostopic info /odom
+Type: nav_msgs/Odometry
+
+Publishers: 
+ * /gazebo (http://min-System:34163/)
+
+Subscribers: None
+
+
+(base) min@min-System:~$ rosmsg show nav_msgs/Odemetry
+Unable to load msg [nav_msgs/Odemetry]: Cannot locate message [Odemetry] in package [nav_msgs] with paths [['/opt/ros/melodic/share/nav_msgs/msg']]
+(base) min@min-System:~$ rosmsg show nav_msgs/Odometry
+std_msgs/Header header
+  uint32 seq
+  time stamp
+  string frame_id
+string child_frame_id
+geometry_msgs/PoseWithCovariance pose
+  geometry_msgs/Pose pose
+    geometry_msgs/Point position
+      float64 x
+      float64 y
+      float64 z
+    geometry_msgs/Quaternion orientation
+      float64 x
+      float64 y
+      float64 z
+      float64 w
+  float64[36] covariance
+geometry_msgs/TwistWithCovariance twist
+  geometry_msgs/Twist twist
+    geometry_msgs/Vector3 linear
+      float64 x
+      float64 y
+      float64 z
+    geometry_msgs/Vector3 angular
+      float64 x
+      float64 y
+      float64 z
+  float64[36] covariance
+  
+  
