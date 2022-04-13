@@ -266,6 +266,30 @@ rosbag_storage                    xmlrpcpp
 
 $ roslaunch yh_turtle turtlebot_scan.launch
 
+(base) min@min-System:~/scan_data$ rosbag record -o /home/min/scan_data/ /scan
+[ INFO] [1649818122.779481474]: Subscribing to /scan
+[ INFO] [1649818122.994343175, 3189.284000000]: Recording to '/home/min/scan_data/_2022-04-13-11-48-42.bag'.
+
+
+실제 데이터를 저장한다.
+
+(base) min@min-System:~/scan_data$ rosbag info _2022-04-13-11-48-42.bag 
+path:        _2022-04-13-11-48-42.bag
+version:     2.0
+duration:    2:10s (130s)
+start:       Jan 01 1970 09:53:09.30 (3189.30)
+end:         Jan 01 1970 09:55:19.30 (3319.30)
+size:        1.9 MB
+messages:    651
+compression: none [3/3 chunks]
+types:       sensor_msgs/LaserScan [90c7ef2dc6895d81024acba2ac42f369]
+topics:      /scan   651 msgs    : sensor_msgs/LaserScan
+
+
+
+
+
+
 
 
 
