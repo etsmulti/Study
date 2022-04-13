@@ -43,8 +43,140 @@ geometry_msgs/TwistWithCovariance twist
   IMU로 계산하지만. 추정한다. 
   라이더센서를 가지고 IMU 값을 보정한다.
   
+  터미널의 여러명령어를 한번에 하고 싶다. 
   
-  
-  
-  
+
+  (base) min@min-System:/opt/ros$ ls
+melodic
+(base) min@min-System:/opt/ros$ cd melodic
+(base) min@min-System:/opt/ros/melodic$ ls
+_setup_util.py  etc      local_setup.bash  setup.bash  share
+bin             include  local_setup.sh    setup.sh
+env.sh          lib      local_setup.zsh   setup.zsh
+(base) min@min-System:/opt/ros/melodic$ cd share
+(base) min@min-System:/opt/ros/melodic/share$ ls
+actionlib                         rosbash
+actionlib_msgs                    rosboost_cfg
+actionlib_tutorials               rosbuild
+angles                            rosclean
+bond                              rosconsole
+bond_core                         rosconsole_bridge
+bondcpp                           roscpp
+bondpy                            roscpp_core
+camera_calibration                roscpp_serialization
+camera_calibration_parsers        roscpp_traits
+camera_info_manager               roscpp_tutorials
+catkin                            roscreate
+class_loader                      roseus
+cmake_modules                     rosgraph
+common-lisp                       rosgraph_msgs
+common_msgs                       roslang
+common_tutorials                  roslaunch
+compressed_depth_image_transport  roslib
+compressed_image_transport        roslint
+control_msgs                      roslisp
+control_toolbox                   roslz4
+controller_interface              rosmake
+controller_manager                rosmaster
+controller_manager_msgs           rosmsg
+cpp_common                        rosnode
+cv_bridge                         rosout
+depth_image_proc                  rospack
+desktop                           rosparam
+desktop_full                      rospy
+diagnostic_aggregator             rospy_tutorials
+diagnostic_analysis               rosservice
+diagnostic_common_diagnostics     rostest
+diagnostic_msgs                   rostime
+diagnostic_updater                rostopic
+diagnostics                       rosunit
+diff_drive_controller             roswtf
+doc                               rqt_action
+dynamic_reconfigure               rqt_bag
+eigen_conversions                 rqt_bag_plugins
+executive_smach                   rqt_common_plugins
+filters                           rqt_console
+forward_command_controller        rqt_dep
+gazebo_dev                        rqt_graph
+gazebo_msgs                       rqt_gui
+gazebo_plugins                    rqt_gui_cpp
+gazebo_ros                        rqt_gui_py
+gazebo_ros_control                rqt_image_view
+gazebo_ros_pkgs                   rqt_launch
+gencpp                            rqt_logger_level
+geneus                            rqt_moveit
+genlisp                           rqt_msg
+genmsg                            rqt_nav_view
+gennodejs                         rqt_plot
+genpy                             rqt_pose_view
+geometry                          rqt_publisher
+geometry_msgs                     rqt_py_common
+geometry_tutorials                rqt_py_console
+gl_dependency                     rqt_reconfigure
+hardware_interface                rqt_robot_dashboard
+image_common                      rqt_robot_monitor
+image_geometry                    rqt_robot_plugins
+image_pipeline                    rqt_robot_steering
+image_proc                        rqt_runtime_monitor
+image_publisher                   rqt_rviz
+image_rotate                      rqt_service_caller
+image_transport                   rqt_shell
+image_transport_plugins           rqt_srv
+image_view                        rqt_tf_tree
+interactive_marker_tutorials      rqt_top
+interactive_markers               rqt_topic
+joint_limits_interface            rqt_web
+joint_state_controller            rviz
+joint_state_publisher             rviz_plugin_tutorials
+kdl_conversions                   rviz_python_tutorial
+kdl_parser                        self_test
+kdl_parser_py                     sensor_msgs
+laser_assembler                   shape_msgs
+laser_filters                     simulators
+laser_geometry                    smach
+laser_pipeline                    smach_msgs
+librviz_tutorial                  smach_ros
+map_msgs                          smclib
+media_export                      stage
+message_filters                   stage_ros
+message_generation                std_msgs
+message_runtime                   std_srvs
+mk                                stereo_image_proc
+nav_msgs                          stereo_msgs
+nodelet                           teleop_twist_keyboard
+nodelet_core                      tf
+nodelet_topic_tools               tf2
+nodelet_tutorial_math             tf2_eigen
+orocos_kdl                        tf2_geometry_msgs
+pcl_conversions                   tf2_kdl
+pcl_msgs                          tf2_msgs
+pcl_ros                           tf2_py
+perception                        tf2_ros
+perception_pcl                    tf_conversions
+pluginlib                         theora_image_transport
+pluginlib_tutorials               topic_tools
+polled_camera                     trajectory_msgs
+position_controllers              transmission_interface
+python_orocos_kdl                 turtle_actionlib
+python_qt_binding                 turtle_tf
+qt_dotgraph                       turtle_tf2
+qt_gui                            turtlebot3_description
+qt_gui_cpp                        turtlebot3_gazebo
+qt_gui_py_common                  turtlebot3_msgs
+qwt_dependency                    turtlesim
+realtime_tools                    urdf
+resource_retriever                urdf_parser_plugin
+robot                             urdf_sim_tutorial
+robot_state_publisher             urdf_tutorial
+ros                               urdfdom_py
+ros_base                          vision_opencv
+ros_comm                          visualization_marker_tutorials
+ros_core                          visualization_msgs
+ros_environment                   visualization_tutorials
+ros_tutorials                     viz
+rosbag                            webkit_dependency
+rosbag_migration_rule             xacro
+rosbag_storage                    xmlrpcpp
+
+여기에 turtlebot3_gazebo 
   
