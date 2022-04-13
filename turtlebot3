@@ -20,23 +20,31 @@ geometry_msgs/PoseWithCovariance pose
     geometry_msgs/Point position
       float64 x
       float64 y
-      float64 z
+      float64 z // 위치
     geometry_msgs/Quaternion orientation
       float64 x
       float64 y
       float64 z
-      float64 w
+      float64 w  // 자세
   float64[36] covariance
 geometry_msgs/TwistWithCovariance twist
   geometry_msgs/Twist twist
     geometry_msgs/Vector3 linear
       float64 x
       float64 y
-      float64 z
+      float64 z  //속도
     geometry_msgs/Vector3 angular
       float64 x
       float64 y
       float64 z
   float64[36] covariance
+  
+  오도메트리를 어떻게 계산하느냐..
+  IMU로 계산하지만. 추정한다. 
+  라이더센서를 가지고 IMU 값을 보정한다.
+  
+  
+  
+  
   
   
