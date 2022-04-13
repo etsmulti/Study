@@ -255,4 +255,17 @@ rosbag_migration_rule             xacro
 rosbag_storage                    xmlrpcpp
 
 여기에 turtlebot3_gazebo 
-  
+
+<launch>
+    <node pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" name="teleop_twist_keyboard"/>
+    <node pkg="rviz" type="tviz" name="rviz" />
+    <include file="$(find turtlebot3_gazebo)/launch/turtlebot3_world.launch"/>
+
+</launch>]
+런치 파일을 런치에 집어 넣기 위해서  include 를 이용한다.
+
+$ roslaunch yh_turtle turtlebot_scan.launch
+
+
+
+
