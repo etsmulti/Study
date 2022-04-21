@@ -42,4 +42,5 @@ while True:
 
     cv2.imshow('QRcode Barcode Scan', frame)
     cv2.waitKey(1)
-[출처] 파이썬코딩 - QR코드, 바코드 스캐너 리더기 만들기(opencv, pyzbar)|작성자 제이
+
+    
