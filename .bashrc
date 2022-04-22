@@ -145,3 +145,11 @@ alias cm="cd ~/catkin_ws && catkin_make"
 alias eb="gedit ~/.bashrc"
 alias sb="source ~/.bashrc"
 
+export TURTLEBOT3_MODEL=waffle
+
+#export ROS_MASTER_URI=http://192.168.1.107:11311
+#export ROS_HOSTNAME=192.168.1.107
+
+export ROS_MASTER_URI=http://192.168.1.107:11311
+export ROS_HOSTNAME=192.168.1.107
+
