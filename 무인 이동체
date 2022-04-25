@@ -1,4 +1,8 @@
 https://github.com/agilexrobotics/scout_ros
 
 
+path 260자 이상 필요로 할때 파워 셀에서 사용
+
+New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem" `
+-Name "LongPathsEnabled" -Value 1 -PropertyType DWORD -Force
 
