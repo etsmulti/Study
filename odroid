@@ -1,0 +1,233 @@
+
+
+history
+
+    1  sudo apt update
+    2  sudo apt upgrade
+    3  sudo dpkg --configure -a
+    4  sudo apt upgrade
+    5  wget https://raw.githubusercontent.com/ntrexlab/ROS_INSTALL_SCRIPT/main/install_ros_noetic_c4.sh && chmod 755 ./install_ros_noetic_c4.sh &&bash ./install_ros_noetic_c4.sh
+    6  roscore
+    7  sudo apt-get install ros-noetic-tf
+    8  cd ~/catkin_ws/src/
+    9  git clone https://github.com/ntrexlab/STELLA_ODROID_C4.git
+   10  cd ~/catkin_ws/src/STELLA_ODROID_C4/stella_teleop_bluetooth/src/
+   11  chmod +x stella_teleop_bluetooth.py 
+   12  cm
+   13  sudo nano /media/boot/
+   14  cd /media/boot/
+   15  sudo nano /media/boot/config.ini
+   16  ls -la /dev/
+   17  sudo reboot
+   18  sudo apt update
+   19  sudo apt upgrade
+   20  sudo apt update
+   21  sudo apt update && sudo apt upgrade
+   22  sudo rm -r /var/lib/apt/lists/lock
+   23  sudo apt update && sudo apt upgrade
+   24  cb
+   25  cm
+   26  sudo apt update && sudo apt upgrade
+   27  sudo apt autoremove
+   28  roscore
+   29  ls
+   30  sudo nano ~/.bashrc 
+   31  source ~/.bashrc 
+   32  roslaunch stella_bringup stella_robot.launch
+   33  sudo nano ~/.bashrc 
+   34  source ~/.bashrc 
+   35  ls
+   36  cat ./bashrc
+   37  ll
+   38  cat .bashrc
+   39  roscore
+   40  roslaunch stella_bringup stella_robot.launch 
+   41  roslaunch stella_teleop_bluetooth stella_teleop_bluetooth.launch 
+   42  rostopic list
+   43  sudo apt install ros-noetic-teleop-twist-keyboard
+   44  rospack profile
+   45  rosrun teleop_twist_keyboard teleop_twist_keyboard.py 
+   46  rostopic pub /cmd_vel geometry_msgs/Twist "linear:
+   47    x: 0.0
+   48    y: 0.0
+   49    z: 0.0
+   50  angular:
+   51    x: 0.0
+   52    y: 0.0
+   53    z: 0.0"
+   54  cs
+   55  ls
+   56  cd STELLA_ODROID_C4/
+   57  ls
+   58  cd stella_teleop_bluetooth/
+   59  ls
+   60  cd launch/
+   61  ls
+   62  cat stella_teleop_bluetooth.launch 
+   63  cd ..
+   64  cd src/
+   65  ls
+   66  cat stella_teleop_bluetooth.py 
+   67  cd ..
+   68  cd stella_bringup/
+   69  ls
+   70  cd launch/
+   71  ls
+   72  cat stella_remote.launch 
+   73  sudo apt install ros-noetic-stella-teleop
+   74  sudo apt update
+   75  cs
+   76  ls
+   77  cd stella_odroid_c4
+   78  cd STELLA_ODROID_C4/
+   79  ls
+   80  cd stella
+   81  ls
+   82  cd ..
+   83  cd stella_camera/
+   84  ls
+   85  cd src/
+   86  ls
+   87  chmod +x *
+   88  roslaunch stella_camera stella_camera.launch 
+   89  cat .bashrc
+   90  gedit .bashrc
+   91  nano .bashrc
+   92  sb
+   93  roslaunch stella_bringup stella_robot.launch 
+   94  sl
+   95  ls
+   96  cd catkin_ws/
+   97  cd ..
+   98  cat .bashrc 
+   99  cs
+  100  ls
+  101  rm STELLA_REMOTE_PC/
+  102  rm -rf STELLA_REMOTE_PC/
+  103  cm
+  104  ls
+  105  cd src/
+  106  ls
+  107  cd STELLA_ODROID_C4/
+  108  ls
+  109  roslaunch stella_bringup stella_robot.launch 
+  110  lks
+  111  ls
+  112  ..
+  113  cd ..
+  114  ls
+  115  cd ..
+  116  ls
+  117  cd ..
+  118  ls
+  119  gedit .bashrc
+  120  nano .bashrc
+  121  sb
+  122  roscore
+  123  exit
+  124  ifconfih
+  125  ifconfig
+  126  sswh
+  127  ssh
+  128  192.168.1.116
+  129  gedit .bashrc
+  130  nano .bashrc
+  131  sb
+  132  cs
+  133  ls
+  134  STELLA_ODROID_C4/
+  135  ls
+  136  cd ST
+  137  cd STELLA_ODROID_C4
+  138  ls
+  139  cd
+  140  roslaunch stella_bringup
+  141  roslaunch stella_bringup stella_robot
+  142  roslaunch stella_bringup stella_robot.launch
+  143  rostopic list
+  144  rostopic echo /cmd_vel
+  145  nano .bashrc 
+  146  exit
+  147  roslaunch stella_bringup stella_robot.launch 
+  148  ifconfig
+  149  exit
+  150  roslaunch stella_bringup stella_robot.launch 
+  151  ifconifg
+  152  ifconfig
+  153  exit
+  154  fkjfkjdkkfdkfjdjffjkdjjdkjf
+  155  ip a
+  156  rostopic list
+  157  roscore
+  158  cs
+  159  rqt_graph
+  160  ping 192.168.10.131
+  161  ifconfig
+  162  clear
+  163  roslaunch stella_camera stella_camera.launch 
+  164  ll
+  165  gedit .bash_history 
+  166  nano .bash_history 
+  167  ls
+  168  pip -V
+  169  pip3 -V
+  170  pip -V
+  171  cs
+  172  python -V
+  173  python3 -V
+  174  pip3 -V
+  175  pip --version
+  176  pip3 --version
+  177  sudo apt-get pip
+  178  odroid
+  179  pip
+  180  sudo apt update
+  181  sudo apt install python3-pip
+  182  pip list
+  183  pip -V
+  184  ls
+  185  cm
+  186  cs
+  187  ls
+  188  cd STELLA_ODROID_C4/
+  189  ls
+  190  history
+  191  ip a
+  192  ping 192.168.10.131
+  193  ping 192.168.10.1
+  194  ping 192.168.1.117
+  195  eb
+  196  sb
+  197  roslaunch stella_bringup stella_robot.launch
+  198  ls
+  199  cs
+  200  ls
+  201  cd STELLA_ODROID_C4
+  202  ls
+  203  cd /
+  204  ll
+  205  cd opt
+  206  ll
+  207  cd ros
+  208  ll
+  209  cs
+  210  ibus-setup
+  211  cs
+  212  ibus-settp
+  213  cd
+  214  ibus-setup
+  215  \
+  216  ibus-setup
+  217  ifconfig
+  218  ping 192.168.10.131
+  219  ping 192.168.1.117
+  220  \
+  221  ping www.naver.com
+  222  ping 192.168.1
+  223  \ping 192.168.1.103
+  224  ping 192.168.10.1
+  225  ping 192.168.1.117
+  226  ping 192.168.0.71
+  227  ifconfig
+  228  ls
+  229  history
