@@ -84,3 +84,9 @@ Build and install.
 catkin_make_isolated --install --use-ninja
 This builds Cartographer from the latest HEAD of the master branch. If you want a specific version, you need to change the version in the cartographer_ros.rosinstall.
 
+
+
+$ source /home/min/catkin_ws/install_isolated/setup.bash
+
+
+setup.bash  인식
