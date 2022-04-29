@@ -38,4 +38,7 @@ CMake Error at /opt/ros/noetic/share/catkin/cmake/catkinConfig.cmake:83 (find_pa
 
 $ sudo apt-get install ros-noetic-move-base
 
+cm 빌딩 되었음...
+
+
 
