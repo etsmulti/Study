@@ -42,6 +42,8 @@ cm 빌딩 되었음...
 
 roslaunch 할때 cartographer-ros가 설처기 안되었다고 해서..설치함
 
+$ roslaunch stella_slam stella_slam.launch
+
 
 **********************************************************************************
 https://google-cartographer-ros.readthedocs.io/en/latest/compilation.html
