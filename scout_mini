@@ -465,3 +465,20 @@ export ROS_MASTER_URI=http://localhost:11311
 export ROS_HOSTNAME=localhost
 
 
+****************************
+/scout_webots_interface.cpp:14:
+/usr/include/pcl-1.10/pcl/pcl_config.h:7:4: error: #error PCL requires C++14 or above
+    7 |   #error PCL requires C++14 or above
+      |    ^~~~~
+In file included from /usr/include/pcl-1.10/pcl/console/print.h:44,
+                 from /usr/include/pcl-1.10/pcl/conversions.h:53,
+                 from /usr/include/pcl-1.10/pcl/common/impl/centroid.hpp:45,
+                 from /usr/include/pcl-1.10/pcl/common/centroid.h:1098,
+                 from /usr/include/pcl-1.10/pcl/common/transforms.h:44,
+                 from /opt/ros/noetic/include/pcl_ros/transforms.h:41,
+                 from /home/min/catkin_ws/src/scout_mini_ros/scout_webots_sim/src/scout_webots_interface.cpp:14:
+/usr/include/pcl-1.10/pcl/pcl_config.h:7:4: error: #error PCL requires C++14 or above
+    7 |   #error PCL requires C++14 or above
+      |    ^~~~~
+
+
