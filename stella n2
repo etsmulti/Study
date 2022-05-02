@@ -90,3 +90,9 @@ $ source /home/min/catkin_ws/install_isolated/setup.bash
 
 
 setup.bash  인식
+
+
+$ roslaunch stella_navigtion stella_navigation.launch map_file:=$HOME/map.yaml
+
+
+
