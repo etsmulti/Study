@@ -94,5 +94,5 @@ setup.bash  인식
 
 $ roslaunch stella_navigtion stella_navigation.launch map_file:=$HOME/map.yaml
 
-
+$ roslaunch stella_navigation stella_navigation.launch map_file:=~/maps/first_floor.yaml
 
