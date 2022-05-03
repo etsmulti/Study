@@ -23,3 +23,29 @@ link: https://github.com/homuler/MediaPipeUnityPlugin/wiki/Installation-Guide#wi
 
 cd d:\Github\MediapipeUnityPlugin
 python build.py build --desktop cpu -v
+
+
+https://github.com/homuler/MediaPipeUnityPlugin
+여기서 파일 받아서 설치
+
+https://github.com/homuler/MediaPipeUnityPlugin/wiki/Installation-Guide
+
+
+ERROR: C:/_bzl/5rroygkp/external/windows_opencv/BUILD.bazel:27:11: SolibSymlink _solib_x64_windows/_U@windows_Uopencv_S_S_Copencv___Ux64_Svc15_Sbin/opencv_world3416.dll failed: missing input file 'external/windows_opencv/x64/vc15/bin/opencv_world3416.dll', owner: '@windows_opencv//:x64/vc15/bin/opencv_world3416.dll'
+ERROR: C:/_bzl/5rroygkp/external/windows_opencv/BUILD.bazel:27:11: SolibSymlink _solib_x64_windows/_U@windows_Uopencv_S_S_Copencv___Ux64_Svc15_Sbin/opencv_world3416.dll failed: 1 input file(s) do not exist
+Target //mediapipe_api:mediapipe_desktop failed to build
+Use --verbose_failures to see the command lines of failed build steps.
+ERROR: C:/_bzl/5rroygkp/external/windows_opencv/BUILD.bazel:27:11 SolibSymlink _solib_x64_windows/_U@windows_Uopencv_S_S_Copencv___Ux64_Svc15_Sbin/opencv_world3416.dll failed: 1 input file(s) do not exist
+INFO: Elapsed time: 744.634s, Critical Path: 451.53s
+INFO: 2072 processes: 245 internal, 1827 local.
+FAILED: Build did NOT complete successfully
+Traceback (most recent call last):
+  File "d:\Github\MediaPipeUnityPlugin\build.py", line 450, in <module>
+    Argument().command().run()
+  File "d:\Github\MediaPipeUnityPlugin\build.py", line 138, in run
+    self._run_command(self._build_desktop_commands())
+  File "d:\Github\MediaPipeUnityPlugin\build.py", line 54, in _run_command
+    return subprocess.run(' '.join(command_list), check=True, shell=shell)
+  File "C:\Users\etsmu\AppData\Local\Programs\Python\Python310\lib\subprocess.py", line 524, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command 'bazel --output_user_root C:/_bzl build -c opt --action_env PYTHON_BIN_PATH="C://Users//etsmu//AppData//Local//Programs//Python//Python310//python.exe" --action_env ProgramData --action_env PROCESSOR_ARCHITECTURE --action_env PROCESSOR_IDENTIFIER --action_env PROCESSOR_LEVEL --action_env PROCESSOR_REVISION --define MEDIAPIPE_DISABLE_GPU=1 --@opencv//:switch=local //mediapipe_api:mediapipe_desktop' returned non-zero exit status 1.
