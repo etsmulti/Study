@@ -1,0 +1,25 @@
+
+
+cd d:\develop\opencv_build
+cmake -DOPENCV_EXTRA_MODULES_PATH=D:\develop\opencv_contrib/modules D:\develop\opencv\sources
+make -j5
+
+
+link: https://stackoverflow.com/questions/25669919/what-is-cmake-install-cmake
+cmake -DBUILD_TYPE=Debug -P cmake_install.cmake.
+
+
+cmake -DOPENCV_EXTRA_MODULES_PATH=D:\develop\opencv_contrib/modules -DBUILD_opencv_legacy=OFF D:\develop\opencv\sources
+
+
+cmake -DBUILD_TYPE=Debug -P cmake_install.cmake.
+
+"C:\Program Files (x86)\GnuWin32\make" -j5
+
+D:\develop\opencv_build\make\bin\make -j5
+
+
+link: https://github.com/homuler/MediaPipeUnityPlugin/wiki/Installation-Guide#windows-10
+
+cd d:\Github\MediapipeUnityPlugin
+python build.py build --desktop cpu -v
