@@ -92,3 +92,87 @@ Run build command
 python build.py build --desktop cpu --opencv=cmake -v
 Rem or if you'd like to use local OpenCV
 python build.py build --desktop cpu -v
+
+
+
+cd d:\develop\opencv_build
+cmake -DOPENCV_EXTRA_MODULES_PATH=D:\develop\opencv_contrib/modules D:\develop\opencv\sources
+make -j5
+
+
+link: https://stackoverflow.com/questions/25669919/what-is-cmake-install-cmake
+cmake -DBUILD_TYPE=Debug -P cmake_install.cmake.
+
+
+cmake -DOPENCV_EXTRA_MODULES_PATH=D:\develop\opencv_contrib/modules -DBUILD_opencv_legacy=OFF D:\develop\opencv\sources
+
+
+cmake -DBUILD_TYPE=Debug -P cmake_install.cmake.
+
+"C:\Program Files (x86)\GnuWin32\make" -j5
+
+D:\develop\opencv_build\make\bin\make -j5
+
+
+link: https://github.com/homuler/MediaPipeUnityPlugin/wiki/Installation-Guide#windows-10
+
+cd d:\Github\MediapipeUnityPlugin
+python build.py build --desktop cpu -v
+
+
+
+set BAZEL_VS=C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools
+set BAZEL_VC=C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\VC
+set BAZEL_VC_FULL_VERSION=<Your local VC version>
+set BAZEL_WINSDK_FULL_VERSION=<Your local WinSDK version>
+
+
+
+set BAZEL_VS="C:\Program Files\Microsoft Visual Studio\2022\Community"
+set BAZEL_VC="C:\Program Files\Microsoft Visual Studio\2022\Community\VC"
+set BAZEL_VC_FULL_VERSION=17.1.6
+set BAZEL_WINSDK_FULL_VERSION=10.0.19041.0
+
+
+cd d:\Github\MediapipeUnityPlugin
+python build.py build --desktop cpu -v
+
+
+
+c:\lib\installOCV.sh
+
+#!/bin/bash -e
+myRepo=$(pwd)
+CMAKE_GENERATOR_OPTIONS=-G"Visual Studio 17 2022"
+#CMAKE_GENERATOR_OPTIONS=-G"Visual Studio 16 2019"
+#CMAKE_GENERATOR_OPTIONS=-G"Visual Studio 15 2017 Win64"
+#CMAKE_GENERATOR_OPTIONS=(-G"Visual Studio 16 2019" -A x64)  # CMake 3.14+ is required
+if [  ! -d "$myRepo/opencv"  ]; then
+    echo "cloning opencv"
+    git clone https://github.com/opencv/opencv.git
+else
+    cd opencv
+    git pull --rebase
+    cd ..
+fi
+if [  ! -d "$myRepo/opencv_contrib"  ]; then
+    echo "cloning opencv_contrib"
+    git clone https://github.com/opencv/opencv_contrib.git
+else
+    cd opencv_contrib
+    git pull --rebase
+    cd ..
+fi
+RepoSource=opencv
+mkdir -p build_opencv
+pushd build_opencv
+CMAKE_OPTIONS=(-DBUILD_PERF_TESTS:BOOL=OFF -DBUILD_TESTS:BOOL=OFF -DBUILD_DOCS:BOOL=OFF  -DWITH_CUDA:BOOL=OFF -DBUILD_EXAMPLES:BOOL=OFF -DINSTALL_CREATE_DISTRIB=ON)
+set -x
+cmake "${CMAKE_GENERATOR_OPTIONS[@]}" "${CMAKE_OPTIONS[@]}" -DOPENCV_EXTRA_MODULES_PATH="$myRepo"/opencv_contrib/modules -DCMAKE_INSTALL_PREFIX="$myRepo/install/$RepoSource" "$myRepo/$RepoSource"
+echo "************************* $Source_DIR -->debug"
+cmake --build .  --config debug
+echo "************************* $Source_DIR -->release"
+cmake --build .  --config release
+cmake --build .  --target install --config release
+cmake --build .  --target install --config debug
+popd
