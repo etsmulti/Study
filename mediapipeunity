@@ -49,3 +49,8 @@ Traceback (most recent call last):
   File "C:\Users\etsmu\AppData\Local\Programs\Python\Python310\lib\subprocess.py", line 524, in run
     raise CalledProcessError(retcode, process.args,
 subprocess.CalledProcessError: Command 'bazel --output_user_root C:/_bzl build -c opt --action_env PYTHON_BIN_PATH="C://Users//etsmu//AppData//Local//Programs//Python//Python310//python.exe" --action_env ProgramData --action_env PROCESSOR_ARCHITECTURE --action_env PROCESSOR_IDENTIFIER --action_env PROCESSOR_LEVEL --action_env PROCESSOR_REVISION --define MEDIAPIPE_DISABLE_GPU=1 --@opencv//:switch=local //mediapipe_api:mediapipe_desktop' returned non-zero exit status 1.
+
+
+python build.py build --android arm64 --android_ndk_api_level 21 -vv
+
+error: invalid argument '-std=c++17' not allowed with 'C'
