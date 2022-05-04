@@ -1,20 +1,31 @@
 
 State : (현재의 상태) error를 관심있게 본다. 실제랑 메저먼트값의 차이도 오차 .. 내가준 지령과 실제값과의 차이도 오차로 볼수 있다.
+x y z 롤 피치 요 속도3 가속도3 각속도3 각가속도3  총 18개가 있다. 
+
+  Measure actual Desired  실제로는 Desired 와 Measure의 값을 일치 시키는것으로 .. 실제와 차이는 결국 센서의 오차로 확인.
+
+Tracking : 추정하는 것을 따라간다.
+내가 관심있어 하는 물제를 x y 값을 트렉킹하는것이다.
+
+Detection : 감지하는것
+
+recognition : label이 있고 없고 차이가 있다 label있다. 
+
+디텍션과 레코그네이션이 끝나야. 제어가 가능하다. 
+
+Control : error를 0 으로 만들겠다. 이게 주 관심사다. 
+ x_d  - x_m = e (x의 디자이어 값과 메져간의 차이를 e로 만든다..) error  e가 주 관심사항이다.
+
+Mapping : 내 위치 이동에 따른 주변사황을 쌓아 가는것. 
+ 적분 상수는 오차다. 미적분을 하면 생기던 없어지던 하는데 그것이 오차이다. 
+
+Localization : 내 위치를 찾는것. 주변으로 부터 내 위치를 찾는것.
+ 내 위치의 방향성과 위치를 찾는것 오도메트리 .. 궤적을 찾는거.. 눈을 뜨면서 보정..
 
 
-Tracking
-
-Detection
-
-recognition
-
-Control
-
-Mapping
-
-Localization
-
-SLAM
+SLAM : localization 과 mapping을 동시에 하는것..
+슬램은 시작부터 할 수 있다. 지도를 그리면서 내 위치를 파악하는것.
+슬램은 맵 업데이트를 하기 위해서 한다. 
 
 Navigation
 
