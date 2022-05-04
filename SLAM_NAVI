@@ -29,3 +29,66 @@ SLAM : localization 과 mapping을 동시에 하는것..
 
 Navigation
 
+mediapipe unity window10 설치.. 방법
+
+Windows 10
+:warning: You cannot build libraries for Android with the following steps.
+If you use Window 10 Pro, go to Docker Windows Container. Otherwise, go to Docker Linux Container.
+
+:warning: Run commands using cmd.exe. It's known that some commands do not work properly with MSYS2.
+
+Install MSYS2 and edit the %PATH% environment variable.
+
+If MSYS2 is installed to C:\msys64, add C:\msys64\usr\bin to your %PATH% environment variable.
+
+Install necessary packages
+
+pacman -S git patch unzip
+Install Python >= 3.9.0 and allow the executable to edit the %PATH% environment variable.
+
+Download Python Windows executable from https://www.python.org/downloads/windows/ and install.
+
+Install Visual C++ Build Tools 2019 and WinSDK
+
+Download Build Tools from https://visualstudio.microsoft.com/visual-cpp-build-tools/ and run Visual Studio Installer.
+
+Select Desktop development with C++ and install it.
+
+Visual Studio Installer
+
+Install Bazelisk and add the location of the executable to %PATH% environment variable.
+
+Note that you need to rename the executable to bazel.exe.
+
+(Optional) Set Bazel variables.
+
+If you have installed multiple Visual Studios or Win SDKs, set environment variables here.
+Learn more details about “Build on Windows” in the Bazel official documentation.
+
+Rem Please find the exact paths and version numbers from your local version.
+
+set BAZEL_VS=C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools
+set BAZEL_VC=C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\VC
+set BAZEL_VC_FULL_VERSION=<Your local VC version>
+set BAZEL_WINSDK_FULL_VERSION=<Your local WinSDK version>
+(Optional) If you'd like to link OpenCV dynamically, install OpenCV.
+
+You can skip this step if you want to link OpenCV statically.
+
+:bell: It can take a very long time to link OpenCV statically because you need to build OpenCV on your local machine.
+For reference, it takes about 5 - 6 minutes on Ryzen 3900x (12-core, 24-thread).
+
+By default, it is assumed that OpenCV 3.4.16 is installed under C:\opencv.
+If your version or path is different, please edit third_party/opencv_windows.BUILD and WORKSPACE.
+
+Install NuGet, and add the location of the NuGet executable to the %PATH% environment variable.
+
+nuget
+Install NumPy
+
+pip install numpy --user
+Run build command
+
+python build.py build --desktop cpu --opencv=cmake -v
+Rem or if you'd like to use local OpenCV
+python build.py build --desktop cpu -v
