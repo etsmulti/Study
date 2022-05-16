@@ -5,3 +5,25 @@ bag 파일로 저장
 roslaunch cartographer_ros my_robot.launch bag_filename:=/path/to/your_bag.bag
 
 bag 파일 불러오기
+
+STELLA_REMOTE_PC_N2/stella_navigation/param/costmap_common_params_stella.yaml
+
+obstacle_range: 4.5
+raytrace_range: 3.5
+
+footprint: [[-0.16, -0.2], [-0.16, 0.2], [0.16, 0.2], [0.16, -0.2]]
+#robot_radius: 0.105
+
+inflation_radius: 0.50
+cost_scaling_factor: 2.0
+
+map_type: costmap
+observation_sources: scan
+scan: {sensor_frame: base_scan, data_type: LaserScan, topic: scan, marking: true, clearing: true}
+
+이것을 조절해서 내비게이션의 장애물 크기를 결정한다. 
+
+
+
+
+
