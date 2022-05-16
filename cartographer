@@ -1,0 +1,7 @@
+cartographer_rosbag_validate -bag_filename your_bag.bag
+
+bag 파일로 저장
+
+roslaunch cartographer_ros my_robot.launch bag_filename:=/path/to/your_bag.bag
+
+bag 파일 불러오기
